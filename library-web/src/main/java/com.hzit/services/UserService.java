@@ -1,7 +1,5 @@
 package com.hzit.services;
 
-import com.hzit.entity.User;
-
 import java.util.List;
 
 /**
