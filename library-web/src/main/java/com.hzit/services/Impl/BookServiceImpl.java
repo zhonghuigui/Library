@@ -1,4 +1,4 @@
-package com.hzit.services.Impl;
+package com.hzit.services.impl;
 
 import com.fc.platform.commons.page.Page;
 import com.fc.platform.commons.page.PageRequest;
@@ -8,9 +8,7 @@ import com.hzit.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Administrator on 2016/10/6.
@@ -18,6 +16,10 @@ import java.util.Map;
 
 @Service
 public class BookServiceImpl implements BookService {
+
+    public BookServiceImpl(){
+        System.out.println("业务逻辑创建");
+    }
 
     @Autowired
     private BookMapper bookMapper;
@@ -40,7 +42,7 @@ public class BookServiceImpl implements BookService {
         return p;
     }
 
-    @Override
+    /*@Override
     public Book ById(String bookName) {
 
         return null;
@@ -56,5 +58,5 @@ public class BookServiceImpl implements BookService {
             }else {
                 return null;
             }
-    }
+    }*/
 }

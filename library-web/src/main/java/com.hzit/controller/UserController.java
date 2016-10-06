@@ -13,8 +13,7 @@ import java.util.List;
  */
 @Controller
 public class UserController {
-@Autowired
-
+    @Autowired
     private UserService userService;
     @RequestMapping("/toadduser")
     public String toadduser(ModelMap modelMap){

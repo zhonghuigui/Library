@@ -20,11 +20,12 @@ public class BookController {
     private BookService bookService;
 
     @RequestMapping("/bookall")
-    public String getAll(@RequestParam("page") int page ,ModelMap modelMap){
+    public String getAll(@RequestParam("page") Integer page ,ModelMap modelMap){
 
         Page<Book> list=bookService.findByPage(page,2);
 
         modelMap.put("list",list);
         return "index";
     }
+
 }
