@@ -14,7 +14,7 @@ public interface BookService {
 
     List<Book> All();
 
-    Book ById(String bookName);
+    /*Book ById(String bookName);
 
-    Book findById(int bookId);
+    Book findById(int bookId);*/
 }

@@ -1,9 +1,8 @@
-package test;
+package com.hzit;
 
 import com.fc.platform.commons.page.Page;
 import com.hzit.dao.entity.Book;
 import com.hzit.services.BookService;
-import com.sun.tools.javadoc.Start;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +15,16 @@ import java.util.List;
  * Created by Administrator on 2016/10/6.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(Start.class)
+@SpringApplicationConfiguration(value=StartApp.class)
 public class TestBook {
 
-    @Autowired
-    private BookService bookService;
+   @Autowired
+    private BookService bookServiceImpl;
+
     @Test
     public void Page(){
-        Page<Book> p=bookService.findByPage(0, 2);
-        List<Book> l=p.getContent();
+       Page<Book> p=bookServiceImpl.findByPage(0,2);
+       List<Book> l=p.getContent();
         for(Book s:l){
             System.out.println(s.getBookName());
         }
