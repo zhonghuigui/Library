@@ -1,4 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -9,7 +11,7 @@
 <div id="header" class="wrap">
 	<div id="logo">合众艾特网上书城</div>
 	<div id="navbar">
-		<form method="get" name="search" action="">
+		<form method="get" name="search" action="index">
 			搜索：<input class="input-text" type="text" name="keywords" /><input class="input-btn" type="submit" name="submit" value="" />
 		</form>
 	</div>

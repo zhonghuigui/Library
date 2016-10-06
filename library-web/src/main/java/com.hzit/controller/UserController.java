@@ -1,5 +1,6 @@
 package com.hzit.controller;
 
+import com.hzit.dao.entity.User;
 import com.hzit.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,14 +14,19 @@ import java.util.List;
  */
 @Controller
 public class UserController {
-@Autowired
+    @Autowired
 
     private UserService userService;
-    @RequestMapping("/toadduser")
-    public String toadduser(ModelMap modelMap){
-      List<com.hzit.dao.entity.User> list=userService.findAll();
-        modelMap.put("list",list);
-      return "register";
+    @RequestMapping("/index")
+    public String login(String username, String password,ModelMap modelMap){
+    User user=userService.findUser(username, password);
+
+        if (user!=null){
+            modelMap.put("user",user);
+            return "index";}
+        else {
+            return "login";
+        }
     }
 
 }
