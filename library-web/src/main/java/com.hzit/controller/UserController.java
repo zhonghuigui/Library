@@ -16,10 +16,10 @@ import java.util.List;
 public class UserController {
     @Autowired
 
-    private UserService userService;
+    private UserService userServiceImpl;
     @RequestMapping("/index")
     public String login(String username, String password,ModelMap modelMap){
-    User user=userService.findUser(username, password);
+    User user=userServiceImpl.findUser(username, password);
 
         if (user!=null){
             modelMap.put("user",user);
