@@ -20,7 +20,7 @@ public class UserController extends WebMvcConfigurerAdapter {
 
     @Autowired
     private UserService userService;
-    @RequestMapping("/login")
+    @RequestMapping("/tologin")
     public String login(@RequestParam("username") String username,@RequestParam("password")  String password,HttpSession session){
         User user=userService.findUser(username, password);
 
