@@ -1,4 +1,4 @@
-package com.hzit.services.impl;
+package com.hzit.services.Impl;
 
 import com.fc.platform.commons.page.Page;
 import com.fc.platform.commons.page.PageRequest;
