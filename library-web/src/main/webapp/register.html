@@ -1,20 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<link type="text/css" rel="stylesheet" href="../../css/style.css" />
+<link type="text/css" rel="stylesheet" href="css/style.css" />
 	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-		$(function(){
-
-		})
-
 
 	</script>
 </head>
@@ -37,16 +32,16 @@
 			<li class="unpass">2.注册成功</li>
 		</ul>
 	</div>
-	<form method="post" action="toregist">
+	<form method="post" action="toinsert">
 		<dl>
 			<dt>用 户 名：</dt>
 			<dd><input class="input-text" type="text" name="userName" /><span>当前用户已存在！</span></dd>
 			<dt>密　　码：</dt>
-			<dd><input class="input-text" type="password" name="passWord" /><span>密码过于简单！</span></dd>
+			<dd><input class="input-text" type="password" name="userPassword" /><span>密码过于简单！</span></dd>
 			<dt>确认密码：</dt>
-			<dd><input class="input-text" type="password" name="rePassWord" /><span>两次密码输入不一致！</span></dd>
+			<dd><input class="input-text" type="password" name="reuserPassword" /><span>两次密码输入不一致！</span></dd>
 			<dt>Email地址：</dt>
-			<dd><input class="input-text" type="text" name="email" /><span>邮箱输入不正确！</span></dd>
+			<dd><input class="input-text" type="text" name="userEmail" /><span>邮箱输入不正确！</span></dd>
 			<dt></dt>
 			<dd class="button"><input class="input-reg" type="submit" name="register" value="注册" /></dd>
 		</dl>

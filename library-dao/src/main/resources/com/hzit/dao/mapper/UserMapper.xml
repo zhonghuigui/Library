@@ -4,26 +4,26 @@
 <mapper namespace="com.hzit.dao.mapper.UserMapper">
 
     <sql id="userBaseColumnSql">
-        UserID,
-        UserName,
-        UserPassword,
-        UserEmail
+        userID,
+        userName,
+        userPassword,
+        userEmail
     </sql>
 
     <sql id="userBaseWhereSql">
         <if test="map!=null">
             <where>
                 <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.userId)">
-                    UserID = #{map.userId}
+                    userID = #{map.userId}
                 </if>
                 <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.userName)">
-                    AND UserName = #{map.userName}
+                    AND userName = #{map.userName}
                 </if>
                 <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.userPassword)">
-                    AND UserPassword = #{map.userPassword}
+                    AND userPassword = #{map.userpassword}
                 </if>
                 <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.userEmail)">
-                    AND UserEmail = #{map.userEmail}
+                    AND userEmail = #{map.userEmail}
                 </if>
             </where>
         </if>
@@ -42,23 +42,23 @@
 
     
     <delete id="deleteUserByUserId" parameterType="Integer">
-        DELETE FROM user WHERE UserID = #{userId}
+        DELETE FROM user WHERE userID = #{userId}
     </delete>
 
     <update id="updateUser" parameterType="com.hzit.dao.entity.User">
         UPDATE user
         <set>
             <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(userName)">
-                UserName = #{userName} ,
+                userName = #{userName} ,
             </if>
             <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(userPassword)">
                 UserPassword = #{userPassword} ,
             </if>
             <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(userEmail)">
-                UserEmail = #{userEmail} ,
+                userEmail = #{userEmail} ,
             </if>
         </set>
-        WHERE UserID = #{userId}
+        WHERE userID = #{userId}
     </update>
 
     <select id="searchUserByParams" parameterType="map" resultMap="userMap">
@@ -69,10 +69,10 @@
     </select>
 
     <resultMap type="com.hzit.dao.entity.User" id="userMap">
-        <id column="UserID" property="userId"/>
-        <result column="UserName" property="userName"/>
-        <result column="UserPassword" property="userPassword"/>
-        <result column="UserEmail" property="userEmail"/>
+        <id column="userID" property="userId"/>
+        <result column="userName" property="userName"/>
+        <result column="userPassword" property="userPassword"/>
+        <result column="userEmail" property="userEmail"/>
     </resultMap>
 
 </mapper>

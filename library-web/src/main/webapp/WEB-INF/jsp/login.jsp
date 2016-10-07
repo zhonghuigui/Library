@@ -18,7 +18,7 @@
 </div>
 <div id="login">
 	<h2>用户登陆</h2>
-	<form method="post" action="tologin">
+	<form method="get" action="tologin">
 		<dl>
 			<dt>用户名：</dt>
 			<dd><input class="input-text" type="text" name="username" /><span>当前用户不存在！</span></dd>

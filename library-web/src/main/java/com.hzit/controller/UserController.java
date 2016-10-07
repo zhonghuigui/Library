@@ -17,17 +17,19 @@ public class UserController extends BaseController {
 
     @Autowired
     private UserService userService;
-    @RequestMapping("/tologin")
-    public String login(@RequestParam("username") String username,@RequestParam("password")  String password,HttpSession session){
-        User user=userService.findUser(username, password);
 
-        if (user!=null){
+    @RequestMapping("/tologin")
+    public String login(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session) {
+        User user = userService.findUser(username, password);
+
+        if (user != null) {
             session.setAttribute("user", user);
-            return "redirect:/index";}
-        else {
+            return "redirect:/index";
+        } else {
             return "redirect:/login";
         }
     }
+
     @RequestMapping("/loginout")
     public String loginout(HttpSession session) {
         session.invalidate();
@@ -37,10 +39,15 @@ public class UserController extends BaseController {
     @RequestMapping("/toinsert")
     public String toinsert(User user) {
 
-     int  num=userService.inset(user);
-        if (num==1){
-            return "redirect:/register_success";
+        int num = userService.inset(user);
+        if (num == 1) {
+            return "redirect:/register_success.html";
         }
-        return "redirect:/register";
+        return "redirect:/register.html";
+    }
+
+    @RequestMapping("/toregist")
+    public String toregist() {
+        return "tegister";
     }
 }
