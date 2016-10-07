@@ -19,19 +19,6 @@ public class Book {
 	private Integer bookPrice;
 
 	/**
-	 * 购买图书的数量
-	 */
-	private  int count;
-
-	public int getCount() {
-		return count;
-	}
-
-	public void setCount(int count) {
-		this.count = count;
-	}
-
-	/**
 	 *  库存
 	 */
 	private Integer bookCount;

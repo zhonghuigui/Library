@@ -6,6 +6,18 @@ package com.hzit.dao.vo;
  */
 public class BookVo {
 	/**
+	 * 购买图书的数量
+	 */
+	private  int count;
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+	/**
 	 *  图书ID
 	 */
 	private Integer bookId;
