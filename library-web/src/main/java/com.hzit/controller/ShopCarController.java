@@ -58,6 +58,6 @@ public class ShopCarController {
         }
         session.setAttribute("car", car);
         //System.out.println("gogo");
-        return "shopping";
+        return "index";
     }
 }
