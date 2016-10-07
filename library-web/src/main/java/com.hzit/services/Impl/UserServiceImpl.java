@@ -30,4 +30,10 @@ public class UserServiceImpl implements UserService {
           return null;
       }
     }
+
+    @Override
+    public int inset(User user) {
+      int num=userMapper.insertUser(user);
+        return num;
+    }
 }

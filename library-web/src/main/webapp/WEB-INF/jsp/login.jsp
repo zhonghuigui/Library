@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<link type="text/css" rel="stylesheet" href="css/style.css" />
+<link type="text/css" rel="stylesheet" href="../../css/style.css" />
 </head>
 <body>
 <div id="header" class="wrap">
@@ -25,7 +25,7 @@
 			<dt>密　码：</dt>
 			<dd><input class="input-text" type="password" name="passWord" /><span>密码过于简单！</span></dd>
 			<dt></dt>
-			<dd class="button"><input class="input-btn" type="submit" name="submit" value="" /><input class="input-reg" type="button" name="register" value="" onclick="window.location='WEB-INF/jsp/register.jsp';" /></dd>
+			<dd class="button"><input class="input-btn" type="submit" name="submit" value="" /><input class="input-reg" type="button" name="register" value="" onclick="window.location='register.jsp';" /></dd>
 		</dl>
 	</form>
 </div>

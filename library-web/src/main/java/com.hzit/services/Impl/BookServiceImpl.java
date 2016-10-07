@@ -29,6 +29,11 @@ public class BookServiceImpl implements BookService {
         return bookMapper.searchBookByParams(null);
     }
 
+    @Override
+    public Book findById(int bookId) {
+        return null;
+    }
+
     /**
      * 传一个页数和每页的行数
      * @param page

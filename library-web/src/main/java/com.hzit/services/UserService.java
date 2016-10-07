@@ -8,4 +8,6 @@ import com.hzit.dao.entity.User;
  */
 public interface UserService {
     public User findUser(String username, String password);
+    public  int inset(User user);
+
 }
