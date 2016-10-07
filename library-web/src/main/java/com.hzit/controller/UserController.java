@@ -6,17 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-
 import javax.servlet.http.HttpSession;
-
 
 /**
  * Created by Administrator on 2016/10/6.
  */
 @Controller
-public class UserController extends WebMvcConfigurerAdapter {
+public class UserController extends BaseController {
 
     @Autowired
     private UserService userService;
