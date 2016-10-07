@@ -17,21 +17,9 @@ import java.util.List;
 @Service
 public class BookServiceImpl implements BookService {
 
-    public BookServiceImpl(){
-        System.out.println("业务逻辑创建");
-    }
-
-    @Autowired
-    private BookMapper bookMapper;
-
     @Override
     public List<Book> All() {
-        return bookMapper.searchBookByParams(null);
-    }
-
-    @Override
-    public Book findById(int bookId) {
-        return null;
+      return bookMapper.searchBookByParams(null);
     }
 
     /**
@@ -47,12 +35,6 @@ public class BookServiceImpl implements BookService {
         return p;
     }
 
-    /*@Override
-    public Book ById(String bookName) {
-
-        return null;
-    }
-
     @Override
     public Book findById(int bookId) {
         Map map= new HashMap();
@@ -63,5 +45,5 @@ public class BookServiceImpl implements BookService {
             }else {
                 return null;
             }
-    }*/
+    }
 }
