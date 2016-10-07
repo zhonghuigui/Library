@@ -21,12 +21,11 @@ public class UserController extends BaseController {
     @RequestMapping("/tologin")
     public String login(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session) {
         User user = userService.findUser(username, password);
-
-        if (user != null) {
+        if (user!= null) {
             session.setAttribute("user", user);
-            return "redirect:/index";
+            return "redirect:/bookall";
         } else {
-            return "redirect:/login";
+            return "redirect:/login.html";
         }
     }
 
@@ -47,7 +46,8 @@ public class UserController extends BaseController {
     }
 
     @RequestMapping("/toregist")
-    public String toregist() {
+    public String toregist(User user) {
+        int num = userService.inset(user);
         return "tegister";
     }
 }
