@@ -8,7 +8,7 @@ public class Book {
 	/**
 	 *  图书ID
 	 */
-	private Integer bookId;
+	private String bookId;
 	/**
 	 *  图书名称
 	 */
@@ -30,7 +30,7 @@ public class Book {
 	 * 图书ID
 	 * @param bookId
 	 */
-	public void setBookId(Integer bookId){
+	public void setBookId(String bookId){
 		this.bookId = bookId;
 	}
 	
@@ -38,7 +38,7 @@ public class Book {
      * 图书ID
      * @return
      */	
-    public Integer getBookId(){
+    public String getBookId(){
     	return bookId;
     }
 	/**

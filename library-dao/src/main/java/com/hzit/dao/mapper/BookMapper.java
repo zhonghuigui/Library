@@ -1,18 +1,18 @@
 package com.hzit.dao.mapper;
 
-import java.util.List;
-import java.util.Map;
-
-import org.apache.ibatis.annotations.Param;
-import com.hzit.dao.entity.Book;
 import com.fc.platform.commons.page.Page;
 import com.fc.platform.commons.page.Pageable;
+import com.hzit.dao.entity.Book;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+import java.util.Map;
 
 public interface BookMapper {
 
 	void insertBook(Book book);
 
-	void deleteBookByBookId(Integer bookId);
+	void deleteBookByBookId(String bookId);
 
 	void updateBook(Book book);
 

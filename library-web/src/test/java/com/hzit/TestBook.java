@@ -18,12 +18,20 @@ import java.util.List;
 @SpringApplicationConfiguration(value=StartApp.class)
 public class TestBook {
 
-   @Autowired
+    @Autowired
     private BookService bookServiceImpl;
 
-    @Test
+    @Test//测试  全部
+    public void booklist(){
+        List<Book> list=bookServiceImpl.All();
+        for(Book b:list){
+            System.out.println(b.getBookName());
+        }
+    }
+
+    @Test//测试  分页
     public void Page(){
-       Page<Book> p=bookServiceImpl.findByPage(0,2);
+       Page<Book> p=bookServiceImpl.findByPage(0,4);
        List<Book> l=p.getContent();
         for(Book s:l){
             System.out.println(s.getBookName());
@@ -32,4 +40,9 @@ public class TestBook {
         System.out.println("总页数"+p.getTotalPages());
     }
 
+    @Test//测试  根据id查询  全部
+    public void byID(){
+        Book b=bookServiceImpl.findById("2");
+        System.out.println(b.getBookName());
+    }
 }

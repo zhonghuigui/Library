@@ -1,6 +1,5 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -26,7 +25,7 @@
 </div>
 <div id="content" class="wrap">
 	<div class="list bookList">
-		<form method="post" name="shoping" action="shopping.html">
+		<form method="post" name="shoping" action="car/putcar">
 			<table>
 				<tr class="title">
 					<th class="checker"></th>
@@ -35,87 +34,25 @@
 					<th class="store">库存</th>
 					<th class="view">图片预览</th>
 				</tr>
-				<tr>
-					<td><input type="checkbox" name="bookId" value="1" /></td>
-					<td class="title">泰戈尔诗集</td>
-					<td>￥18.00</td>
-					<td>999</td>
-					<td class="thumb"><img src="images/book/book_01.gif" /></td>
-				</tr>
-				<tr class="odd">
-					<td><input type="checkbox" name="bookId" value="2" /></td>
-					<td class="title">痕记</td>
-					<td>￥22.80</td>
-					<td>999</td>
-					<td class="thumb"><img src="images/book/book_02.gif" /></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="bookId" value="3" /></td>
-					<td class="title">天堂之旅</td>
-					<td>￥25.00</td>
-					<td>999</td>
-					<td class="thumb"><img src="images/book/book_03.gif" /></td>
-				</tr>
-				<tr class="odd">
-					<td><input type="checkbox" name="bookId" value="4" /></td>
-					<td class="title">钱钟书集（全10册）</td>
-					<td>￥332.50</td>
-					<td>999</td>
-					<td class="thumb"><img src="images/book/book_04.gif" /></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="bookId" value="5" /></td>
-					<td class="title">赵俪生高昭—夫妻回忆录</td>
-					<td>￥38.00</td>
-					<td>999</td>
-					<td class="thumb"><img src="images/book/book_05.gif" /></td>
-				</tr>
-				<tr class="odd">
-					<td><input type="checkbox" name="bookId" value="6" /></td>
-					<td class="title">无聊斋（张绍刚首部随笔杂文作品）</td>
-					<td>￥28.00</td>
-					<td>999</td>
-					<td class="thumb"><img src="images/book/book_06.gif" /></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="bookId" value="7" /></td>
-					<td class="title">一颗热土豆是一张温馨的床</td>
-					<td>￥38.00</td>
-					<td>999</td>
-					<td class="thumb"><img src="images/book/book_07.gif" /></td>
-				</tr>
-				<tr class="odd">
-					<td><input type="checkbox" name="bookId" value="8" /></td>
-					<td class="title">李戡戡乱记</td>
-					<td>￥22.00</td>
-					<td>999</td>
-					<td class="thumb"><img src="images/book/book_08.gif" /></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="bookId" value="9" /></td>
-					<td class="title">生生世世未了缘</td>
-					<td>￥17.50</td>
-					<td>999</td>
-					<td class="thumb"><img src="images/book/book_09.gif" /></td>
-				</tr>
-				<tr class="odd">
-					<td><input type="checkbox" name="bookId" value="10" /></td>
-					<td class="title">一生有多少爱</td>
-					<td>￥17.50</td>
-					<td>999</td>
-					<td class="thumb"><img src="images/book/book_10.gif" /></td>
-				</tr>
+				<c:forEach items="${list.content}" var="v">
+					<tr>
+							<%--${v.bookId}--%>
+						<td><input type="checkbox" value="${v.bookId}" name="bookId"/></td>
+						<td>${v.bookName}</td>
+						<td>${v.bookPrice}</td>
+						<td>${v.bookCount}</td>
+						<td><img src="${v.bookPicture}"></td>
+					</tr>
+				</c:forEach>
 			</table>
 			<div class="page-spliter">
-				<a href="#">&lt;</a>
-				<a href="#">首页</a>
-				<span class="current">1</span>
-				<a href="#">2</a>
-				<a href="#">3</a>
-				<a href="#">4</a>
-				<span>...</span>
-				<a href="#">尾页</a>
-				<a href="#">&gt;</a>
+				<a href="bookpage?page=${currpage-1}">&lt;</a>
+				<a href="bookpage">首页</a>
+					<c:forEach begin="1" end="${list.totalPages}" var="p">
+					<span class="current"><a href="bookpage?page=${p-1}">${p}</a></span>
+					</c:forEach>
+				<a href="bookpage?page=${list.totalPages-1}">尾页</a>
+				<a href="bookpage?page=${currpage+1}">&gt;</a>
 			</div>
 			<div class="button"><input class="input-btn" type="submit" name="submit" value="" /></div>
 		</form>
@@ -123,7 +60,6 @@
 </div>
 <div id="footer" class="wrap">
 	合众艾特网上书城 &copy; 版权所有
-
 </div>
 </body>
 </html>
