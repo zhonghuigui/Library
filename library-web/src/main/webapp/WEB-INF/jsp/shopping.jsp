@@ -53,7 +53,7 @@
                      bookid="${v.value.bookId}" price="${v.value.bookPrice}" /></td>
           <td>￥${v.value.bookPrice}</td>
           <td class="cc"><span>￥${v.value.bookPrice*v.value.count}</span></td>
-          <td><a href="javascript:void(0)">删除</a></td>
+          <td><a href="javascript:void(0)" class="del" bookid="${v.value.bookId}">删除</a></td>
           <%--<c:set var="ji" value="${ji+v.value.bookPrice*v.value.count}"></c:set>--%>
         </tr>
         </c:forEach>
@@ -76,14 +76,17 @@
     $(".input-text").blur(function(){
         var c=$(this).val();
         var p=$(this).attr("price");
-
         //先改本地小计
         $(this).parent().next().next().children("span").html(c*p);
-
         //再改服务器
-
-
       $.post("updatebook",{"bookId":$(this).attr("bookid"),"count":$(this).val()},function(a){
+        $(".sum").html(a);
+      });
+    });
+
+    $(".del").click(function(){
+      $(this).parents("tr").fadeOut(2000).remove();
+      $.post("delbook",{"bookId":$(this).attr("bookid")},function(a){
         $(".sum").html(a);
       });
     });

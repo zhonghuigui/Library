@@ -79,6 +79,20 @@ public class ShopCarController {
         return su;
     }
 
+    @RequestMapping("/delbook")
+    @ResponseBody
+    public Object d(@RequestParam("bookId") String bookId,HttpSession session){
+        Map car=(Map)session.getAttribute("car");
+        car.remove(bookId);
+        session.setAttribute("car",car);
+        int su=0;
+        Collection<BookVo> cc=car.values();
+        for(BookVo t:cc){
+            su+= t.getCount()*t.getBookPrice();
+        }
+        return su;
+
+    }
 
     @RequestMapping("/toshopping")
     public String s(){
