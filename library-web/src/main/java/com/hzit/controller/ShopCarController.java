@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,9 +37,7 @@ public class ShopCarController {
             String strId=bookId[i];
             //通过图片ID 获取图片对象
             Book book=bookService.findById(strId);
-
             BookVo v=new BookVo();
-
             v.setBookCount(book.getBookCount());
             v.setBookId(book.getBookId());
             v.setBookName(book.getBookName());
@@ -50,12 +50,38 @@ public class ShopCarController {
                 }else {
                     v.setCount(b.getCount()+1);
                 }
-            v.setCount(1);
             //把对象放入到购物车
             car.put(v.getBookId(),v);
         }
         session.setAttribute("car", car);
         //System.out.println("gogo");
-        return "shopping";
+        return "redirect:/car/toshopping";
+    }
+
+
+    @RequestMapping("/updatebook")
+    @ResponseBody
+    public Object u(@RequestParam("bookId") String bookId,@RequestParam("count")Integer count,HttpSession session){
+        //System.out.println("修改了编号为"+bookId+"的数量，新的值是"+count);
+        Map car=(Map)session.getAttribute("car");
+        BookVo v=(BookVo)car.get(bookId);
+        if(v!=null){
+            v.setCount(count);
+        }
+
+        int su=0;
+         Collection<BookVo> cc=car.values();
+        for(BookVo t:cc){
+            su+= t.getCount()*t.getBookPrice();
+        }
+
+        session.setAttribute("car",car);
+        return su;
+    }
+
+
+    @RequestMapping("/toshopping")
+    public String s(){
+    return "shopping";
     }
 }

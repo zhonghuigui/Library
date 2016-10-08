@@ -1,10 +1,12 @@
 package com.hzit.dao.vo;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author SoulKing
  */
-public class BookVo {
+public class BookVo implements Serializable {
 	/**
 	 * 购买图书的数量
 	 */
