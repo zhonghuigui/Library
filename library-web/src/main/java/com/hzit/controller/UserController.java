@@ -23,7 +23,7 @@ public class UserController extends BaseController {
         User user = userService.findUser(username, password);
         if (user!= null) {
             session.setAttribute("user", user);
-            return "redirect:/bookall";
+            return "redirect:/bookpage";
         } else {
             return "redirect:/login.html";
         }
@@ -32,7 +32,7 @@ public class UserController extends BaseController {
     @RequestMapping("/loginout")
     public String loginout(HttpSession session) {
         session.invalidate();
-        return "redirect:/login";
+        return "redirect:/tologin";
     }
 
     @RequestMapping("/toinsert")
