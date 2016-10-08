@@ -12,11 +12,14 @@
 	<div id="navbar">
 		<div class="userMenu">
 			<ul>
-				<li class="current"><a href="index.html">User首页</a></li>
+
+				<li class="current"><a href="bookpage">首页</a></li>
 				<li><a href="orderlist.html">我的订单</a></li>
-				<li><a href="shopping.html">购物车</a></li>
+					<li><a href="car/putcar">购物车</a></li>
 				<li><a href="loginout">注销</a></li>
+
 			</ul>
+
 		</div>
 		<form method="get" name="search" action="">
 			搜索：<input class="input-text" type="text" name="keywords" /><input class="input-btn" type="submit" name="submit" value="" />
