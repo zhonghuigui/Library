@@ -1,10 +1,12 @@
 package com.hzit.dao.entity;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author SoulKing
  */
-public class Book {
+public class Book implements Serializable{
 	/**
 	 *  图书ID
 	 */
