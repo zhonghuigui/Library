@@ -12,11 +12,11 @@ public class Orderdetail {
 	/**
 	 *  订单ID
 	 */
-	private Integer orderId;
+	private String orderId;
 	/**
 	 *  书本ID
 	 */
-	private Integer bookId;
+	private String bookId;
 	/**
 	 *  交易价格
 	 */
@@ -44,7 +44,7 @@ public class Orderdetail {
 	 * 订单ID
 	 * @param orderId
 	 */
-	public void setOrderId(Integer orderId){
+	public void setOrderId(String orderId){
 		this.orderId = orderId;
 	}
 	
@@ -52,14 +52,14 @@ public class Orderdetail {
      * 订单ID
      * @return
      */	
-    public Integer getOrderId(){
+    public String getOrderId(){
     	return orderId;
     }
 	/**
 	 * 书本ID
 	 * @param bookId
 	 */
-	public void setBookId(Integer bookId){
+	public void setBookId(String bookId){
 		this.bookId = bookId;
 	}
 	
@@ -67,7 +67,7 @@ public class Orderdetail {
      * 书本ID
      * @return
      */	
-    public Integer getBookId(){
+    public String getBookId(){
     	return bookId;
     }
 	/**

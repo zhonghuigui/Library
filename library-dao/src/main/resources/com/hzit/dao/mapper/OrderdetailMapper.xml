@@ -4,10 +4,10 @@
 <mapper namespace="com.hzit.dao.mapper.OrderdetailMapper">
 
     <sql id="orderdetailBaseColumnSql">
-        OrderDetailsID,
+        orderDetailsID,
         orderID,
         bookID,
-        Dealprice,
+        dealprice,
         count
     </sql>
 
@@ -15,7 +15,7 @@
         <if test="map!=null">
             <where>
                 <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.orderDetailsId)">
-                    OrderDetailsID = #{map.orderDetailsId}
+                    orderDetailsID = #{map.orderDetailsId}
                 </if>
                 <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.orderId)">
                     AND orderID = #{map.orderId}
@@ -24,7 +24,7 @@
                     AND bookID = #{map.bookId}
                 </if>
                 <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.dealprice)">
-                    AND Dealprice = #{map.dealprice}
+                    AND dealprice = #{map.dealprice}
                 </if>
                 <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.count)">
                     AND count = #{map.count}
@@ -47,7 +47,7 @@
 
     
     <delete id="deleteOrderdetailByOrderDetailsId" parameterType="Integer">
-        DELETE FROM orderdetails WHERE OrderDetailsID = #{orderDetailsId}
+        DELETE FROM orderdetails WHERE orderDetailsID = #{orderDetailsId}
     </delete>
 
     <update id="updateOrderdetail" parameterType="com.hzit.dao.entity.Orderdetail">
@@ -60,13 +60,13 @@
                 bookID = #{bookId} ,
             </if>
             <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(dealprice)">
-                Dealprice = #{dealprice} ,
+                dealprice = #{dealprice} ,
             </if>
             <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(count)">
                 count = #{count} ,
             </if>
         </set>
-        WHERE OrderDetailsID = #{orderDetailsId}
+        WHERE orderDetailsID = #{orderDetailsId}
     </update>
 
     <select id="searchOrderdetailByParams" parameterType="map" resultMap="orderdetailMap">
@@ -77,10 +77,10 @@
     </select>
 
     <resultMap type="com.hzit.dao.entity.Orderdetail" id="orderdetailMap">
-        <id column="OrderDetailsID" property="orderDetailsId"/>
+        <id column="orderDetailsID" property="orderDetailsId"/>
         <result column="orderID" property="orderId"/>
         <result column="bookID" property="bookId"/>
-        <result column="Dealprice" property="dealprice"/>
+        <result column="dealprice" property="dealprice"/>
         <result column="count" property="count"/>
     </resultMap>
 
