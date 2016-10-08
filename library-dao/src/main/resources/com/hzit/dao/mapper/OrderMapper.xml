@@ -4,37 +4,37 @@
 <mapper namespace="com.hzit.dao.mapper.OrderMapper">
 
     <sql id="orderBaseColumnSql">
-        OrderID,
-        OrderPrice,
-        Date,
+        orderID,
+        orderPrice,
+        `date`,
         userID,
-        OrderStatus
+        orderStatus
     </sql>
 
     <sql id="orderBaseWhereSql">
         <if test="map!=null">
             <where>
                 <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.orderId)">
-                    OrderID = #{map.orderId}
+                    orderID = #{map.orderId}
                 </if>
                 <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.orderPrice)">
-                    AND OrderPrice = #{map.orderPrice}
+                    AND orderPrice = #{map.orderPrice}
                 </if>
                 <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.date)">
-                    AND Date = #{map.date}
+                    AND `date` = #{map.date}
                 </if>
                 <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.userId)">
                     AND userID = #{map.userId}
                 </if>
                 <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.orderStatus)">
-                    AND OrderStatus = #{map.orderStatus}
+                    AND orderStatus = #{map.orderStatus}
                 </if>
             </where>
         </if>
     </sql>
 
     <insert id="insertOrder" parameterType="com.hzit.dao.entity.Order">
-        INSERT INTO order(
+        INSERT INTO `order`(
         <include refid="orderBaseColumnSql"/>
         )VALUES(
             #{orderId},
@@ -47,41 +47,41 @@
 
     
     <delete id="deleteOrderByOrderId" parameterType="Integer">
-        DELETE FROM order WHERE OrderID = #{orderId}
+        DELETE FROM `order` WHERE orderID = #{orderId}
     </delete>
 
     <update id="updateOrder" parameterType="com.hzit.dao.entity.Order">
-        UPDATE order
+        UPDATE `order`
         <set>
             <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(orderPrice)">
-                OrderPrice = #{orderPrice} ,
+                orderPrice = #{orderPrice} ,
             </if>
             <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(date)">
-                Date = #{date} ,
+                `date` = #{date} ,
             </if>
             <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(userId)">
                 userID = #{userId} ,
             </if>
             <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(orderStatus)">
-                OrderStatus = #{orderStatus} ,
+                orderStatus = #{orderStatus} ,
             </if>
         </set>
-        WHERE OrderID = #{orderId}
+        WHERE orderID = #{orderId}
     </update>
 
     <select id="searchOrderByParams" parameterType="map" resultMap="orderMap">
         SELECT
         <include refid="orderBaseColumnSql"/>
-        FROM order
+        FROM `order`
         <include refid="orderBaseWhereSql"/>
     </select>
 
     <resultMap type="com.hzit.dao.entity.Order" id="orderMap">
-        <id column="OrderID" property="orderId"/>
-        <result column="OrderPrice" property="orderPrice"/>
-        <result column="Date" property="date"/>
+        <id column="orderID" property="orderId"/>
+        <result column="orderPrice" property="orderPrice"/>
+        <result column="date" property="date"/>
         <result column="userID" property="userId"/>
-        <result column="OrderStatus" property="orderStatus"/>
+        <result column="orderStatus" property="orderStatus"/>
     </resultMap>
 
 </mapper>

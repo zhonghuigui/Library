@@ -1,5 +1,7 @@
 package com.hzit.dao.vo;
 
+import java.util.List;
+
 /**
  * 
  * @author SoulKing
@@ -13,6 +15,21 @@ public class OrderVo {
 	 *  订单价格
 	 */
 	private Integer orderPrice;
+
+	public List<BookVo> getBookVoList() {
+		return bookVoList;
+	}
+
+	public void setBookVoList(List<BookVo> bookVoList) {
+		this.bookVoList = bookVoList;
+	}
+
+	/**
+	 * 订单中所有购买的图书集合
+	 * @param orderid
+	 */
+	private List<BookVo> bookVoList;
+
 	/**
 	 *  创建时间
 	 */
