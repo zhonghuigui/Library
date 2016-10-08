@@ -50,14 +50,12 @@ public class ShopCarController {
                 }else {
                     v.setCount(b.getCount()+1);
                 }
-
             v.setCount(1);
-
             //把对象放入到购物车
             car.put(v.getBookId(),v);
         }
         session.setAttribute("car", car);
         //System.out.println("gogo");
-        return "index";
+        return "shopping";
     }
 }
