@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 <div id="header" class="wrap">
@@ -19,12 +19,14 @@
 	<form method="post" action="tologin">
 		<dl>
 			<dt>用户名：</dt>
-			<dd><input class="input-text" type="text" name="username" /><span>当前用户不存在！</span></dd>
+			<dd><input class="input-name" type="text" name="username" /><span class="sp"></span></dd>
 			<dt>密　码：</dt>
-			<dd><input class="input-text" type="password" name="password" /><span>密码过于简单！</span></dd>
+			<dd><input class="input-pwd" type="password" name="password" /><span></span></dd>
 			<dt></dt>
-			<dd class="button"><input class="input-btn" type="submit" name="submit" value="" />
-				<input class="input-reg" type="button" name="register" value="" onclick="window.location='register.html';" /></dd>
+			<dd class="button">
+				<input class="input-btn" type="submit" name="submit" value=""/>
+				<input class="input-reg" type="button" name="register"
+					   onclick="location='register.html';" /></dd>
 		</dl>
 	</form>
 </div>
