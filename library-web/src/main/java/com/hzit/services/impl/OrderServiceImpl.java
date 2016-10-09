@@ -61,14 +61,14 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<Order> findAll(Integer userid) {
         Map map=new HashMap();
-        map.put("userID",userid);
+        map.put("userId",userid+"");
         return orderMapper.searchOrderByParams(map);
     }
 
     @Override
     public Page<Order> findByPage(Integer userid, int page, int row) {
         Map map=new HashMap();
-        map.put("userID",userid);
+        map.put("userId",userid+"");
         PageRequest pg=new PageRequest(page,row);
     Page<Order> p=orderMapper.searchOrderByParams(map, pg);
         return p;
