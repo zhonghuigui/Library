@@ -24,6 +24,12 @@ public class ShopCarController {
     @Autowired
     private BookService bookService;
 
+    /**
+     * 购物车
+     * @param bookId
+     * @param session
+     * @return
+     */
     @RequestMapping("/putcar")
     //@ResponseBody
     public String putcar(@RequestParam(value = "bookId",defaultValue ="") String[] bookId,HttpSession session){
@@ -58,7 +64,13 @@ public class ShopCarController {
         return "redirect:/car/toshopping";
     }
 
-
+    /**
+     * 修改数量
+     * @param bookId
+     * @param count
+     * @param session
+     * @return
+     */
     @RequestMapping("/updatebook")
     @ResponseBody
     public Object u(@RequestParam("bookId") String bookId,@RequestParam("count")Integer count,HttpSession session){
@@ -68,17 +80,21 @@ public class ShopCarController {
         if(v!=null){
             v.setCount(count);
         }
-
         int su=0;
          Collection<BookVo> cc=car.values();
         for(BookVo t:cc){
             su+= t.getCount()*t.getBookPrice();
         }
-
         session.setAttribute("car",car);
         return su;
     }
 
+    /**
+     * 删除购物车中的商品
+     * @param bookId
+     * @param session
+     * @return
+     */
     @RequestMapping("/delbook")
     @ResponseBody
     public Object d(@RequestParam("bookId") String bookId,HttpSession session){
@@ -94,6 +110,10 @@ public class ShopCarController {
 
     }
 
+    /**
+     * 防止页面刷新时  商品数量自增
+     * @return
+     */
     @RequestMapping("/toshopping")
     public String s(){
     return "shopping";
