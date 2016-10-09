@@ -10,10 +10,27 @@ import java.util.List;
  */
 public interface BookService {
 
-    Page<Book> findByPage(int page,int row);
-
+    /**
+     * 查询全部
+     * @return
+     */
     List<Book> All();
 
+    /**
+     * 分页查询
+     * @param page
+     * @param row
+     * @return
+     */
+    Page<Book> findByPage(int page,int row);
+
+
+
+    /**
+     * 根据ID查图书的全部信息
+     * @param bookId
+     * @return
+     */
     Book findById(String bookId);
 
 }
