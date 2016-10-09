@@ -37,7 +37,6 @@
 				</tr>
 				<c:forEach items="${list.content}" var="v">
 					<tr>
-							<%--${v.bookId}--%>
 						<td><input type="checkbox" value="${v.bookId}" name="bookId"/></td>
 						<td>${v.bookName}</td>
 						<td>${v.bookPrice}</td>
