@@ -20,7 +20,6 @@ public class UserController extends BaseController {
 
     /**
      * 登录进入主页
-     *
      * @param username
      * @param password
      * @param session
@@ -35,8 +34,6 @@ public class UserController extends BaseController {
         } else
             return "redirect:/login.html";
         }
-
-
 
     /**
      * 注销
