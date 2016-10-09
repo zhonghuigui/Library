@@ -31,7 +31,6 @@ public class ShopCarController {
      * @return
      */
     @RequestMapping("/putcar")
-    //@ResponseBody
     public String putcar(@RequestParam(value = "bookId",defaultValue ="") String[] bookId,HttpSession session){
         //创建购物车对象,先假设 session中有购物车对象，如果没有则创建购物车对象
         Map car=(Map)session.getAttribute("car");
@@ -58,6 +57,13 @@ public class ShopCarController {
                 }
             //把对象放入到购物车
             car.put(v.getBookId(),v);
+
+            //循环计算商品的总价
+            int su=0;
+            Collection<BookVo> cc=car.values();
+            for(BookVo t:cc){
+                su+= t.getCount()*t.getBookPrice();
+            }
         }
         session.setAttribute("car", car);
         //System.out.println("gogo");
