@@ -20,6 +20,10 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
+    /**
+     * 返回所以的图书信息
+     * @return
+     */
     @RequestMapping("/booklist")
     @ResponseBody
     public Object getBooklist(){
@@ -27,6 +31,12 @@ public class BookController {
         return bookService.All();
     }
 
+    /**
+     * 分页查询
+     * @param page
+     * @param modelMap
+     * @return
+     */
     @RequestMapping("/bookpage")
     public String getAll(@RequestParam(name="page",defaultValue = "0") Integer page ,ModelMap modelMap){
 

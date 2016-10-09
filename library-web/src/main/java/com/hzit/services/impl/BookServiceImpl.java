@@ -23,6 +23,10 @@ public class BookServiceImpl implements BookService {
     @Autowired
     private BookMapper bookMapper;
 
+    /**
+     * 查询全部
+     * @return
+     */
     @Override
     public List<Book> All() {
       return bookMapper.searchBookByParams(null);
@@ -57,4 +61,6 @@ public class BookServiceImpl implements BookService {
                 return null;
             }
     }
+
+
 }
