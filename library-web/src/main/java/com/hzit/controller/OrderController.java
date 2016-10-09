@@ -50,10 +50,10 @@ public class OrderController {
     }
     @RequestMapping("/findallorder")
     public String findAllorder( ModelMap modelMap,HttpSession session){
-        User user= (User) session.getAttribute("user");
-        List<Order> list=orderService.findAll(user.getUserId());
+       User user= (User) session.getAttribute("user");
+        List<Order> list=orderService.findAll(null);
         modelMap.put("list",list);
-        modelMap.put("userid",user.getUserId());
+//        modelMap.put("userid",user.getUserId());
         return "orderlist";
     }
 

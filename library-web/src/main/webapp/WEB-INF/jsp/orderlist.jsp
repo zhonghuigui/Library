@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -32,15 +33,16 @@
 					<th class="orderId">订单编号</th>
 					<th>订单商品</th>
 					<th class="userName">收货人</th>
-					<th class="price">订单金额</th>
-					<th class="createTime">下单时间</th>
-					<th class="status">订单状态</th>
+					<th class="orderPrice">订单金额</th>
+					<th class="date">下单时间</th>
+					<th class="orderStatus">订单状态</th>
 				</tr>
-           <c:forEach items="${list.content}" var="v">
+             <c:forEach items="${list.content}" var="v">
 				<tr>
 					<td>${v.orderId}</td>
+					<td></td>
+					<td></td>
 					<td class="thumb"></td>
-					<td>${v.userId}</td>
 					<td>${v.orderPrice}</td>
 					<td>${v.date}</td>
 					<td>${v.orderStatus}</td>

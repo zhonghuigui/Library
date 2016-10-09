@@ -2,6 +2,7 @@ package com.hzit.services.impl;
 
 import com.hzit.dao.entity.Order;
 import com.hzit.dao.entity.Orderdetail;
+import com.hzit.dao.entity.User;
 import com.hzit.dao.mapper.OrderMapper;
 import com.hzit.dao.mapper.OrderdetailMapper;
 import com.hzit.dao.vo.BookVo;
@@ -58,7 +59,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> findAll(Integer user) {
+    public List<Order> findAll(User user) {
         return orderMapper.searchOrderByParams(null);
     }
 }
