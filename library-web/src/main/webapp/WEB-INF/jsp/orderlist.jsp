@@ -37,11 +37,11 @@
 					<th class="date">下单时间</th>
 					<th class="orderStatus">订单状态</th>
 				</tr>
-             <c:forEach items="${list}" var="v">
+             <c:forEach items="${list.content}" var="v">
 				<tr>
 					<td>${v.orderId}</td>
-					<td></td>
 					<td class="thumb"></td>
+					<td>${sessionScope.user.userName}</td>
 					<td>${v.orderPrice}</td>
 					<td>${v.date}</td>
 					<td>${v.orderStatus}</td>
@@ -50,15 +50,13 @@
 			</table>
 			</form>
 			<div class="page-spliter">
-				<a href="#">&lt;</a>
-				<a href="#">首页</a>
-				<span class="current">1</span>
-				<a href="#">2</a>
-				<a href="#">3</a>
-				<a href="#">4</a>
-				<span>...</span>
-				<a href="#">尾页</a>
-				<a href="#">&gt;</a>
+				<a href="orderpage?page=${currpage-1}">&lt;</a>
+				<a href="orderpage">首页</a>
+				<c:forEach begin="1" end="${list.totalPages}" var="p">
+					<span class="current"><a href="orderpage?page=${p-1}">${p}</a></span>
+				</c:forEach>
+				<a href="orderpage?page=${list.totalPages-1}">尾页</a>
+				<a href="orderpage?page=${currpage+1}">&gt;</a>
 			</div>
 			<div class="button"><input class="input-gray" type="submit" name="submit" value="查看一个月前的订单" /><input class="input-gray" type="submit" name="submit" value="查看一个月前的订单" /></div>
 	</div>

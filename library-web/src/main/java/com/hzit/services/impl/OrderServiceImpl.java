@@ -1,5 +1,7 @@
 package com.hzit.services.impl;
 
+import com.fc.platform.commons.page.Page;
+import com.fc.platform.commons.page.PageRequest;
 import com.hzit.dao.entity.Order;
 import com.hzit.dao.entity.Orderdetail;
 import com.hzit.dao.entity.User;
@@ -12,9 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Created by Administrator on 2016/10/8.
@@ -59,7 +59,18 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> findAll(User user) {
-        return orderMapper.searchOrderByParams(null);
+    public List<Order> findAll(Integer userid) {
+        Map map=new HashMap();
+        map.put("userID",userid);
+        return orderMapper.searchOrderByParams(map);
+    }
+
+    @Override
+    public Page<Order> findByPage(Integer userid, int page, int row) {
+        Map map=new HashMap();
+        map.put("userID",userid);
+        PageRequest pg=new PageRequest(page,row);
+    Page<Order> p=orderMapper.searchOrderByParams(map, pg);
+        return p;
     }
 }

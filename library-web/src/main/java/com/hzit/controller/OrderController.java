@@ -1,5 +1,7 @@
 package com.hzit.controller;
 
+import com.fc.platform.commons.page.Page;
+import com.hzit.dao.entity.Book;
 import com.hzit.dao.entity.Order;
 import com.hzit.dao.entity.User;
 import com.hzit.dao.vo.BookVo;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
@@ -34,7 +37,7 @@ public class OrderController {
             Collection<BookVo> values = car.values();
             List list = new ArrayList();
             //将购物车转移到集合中，
-            for (BookVo bookVo : values){
+            for (BookVo bookVo : values) {
                 list.add(bookVo);
             }
             OrderVo o = new OrderVo();
@@ -48,13 +51,29 @@ public class OrderController {
         }
 
     }
+
     @RequestMapping("/findallorder")
-    public String findAllorder( ModelMap modelMap,HttpSession session){
-       User user= (User) session.getAttribute("user");
-        List<Order> list=orderService.findAll(user);
-        modelMap.put("list",list);
-//        modelMap.put("userid",user.getUserId());
+    public String findAllorder(ModelMap modelMap, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        List<Order> list = orderService.findAll(user.getUserId());
+        modelMap.put("list", list);
+      modelMap.put("userid",user.getUserId());
         return "orderlist";
     }
 
+    /**
+     * 分页查询订单数据
+     * @param page
+     * @param modelMap
+     * @param session
+     * @return
+     */
+    @RequestMapping("orderpage")
+    public String getAll( @RequestParam(name = "page", defaultValue = "0") Integer page, ModelMap modelMap,HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        Page<Order> list = orderService.findByPage(user.getUserId(), page, 4);
+        modelMap.put("list", list);
+        modelMap.put("currpage", page);
+        return "orderlist";
+    }
 }

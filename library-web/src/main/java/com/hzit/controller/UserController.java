@@ -28,6 +28,9 @@ public class UserController extends BaseController {
      */
     @RequestMapping("/tologin")
     public String login(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session) {
+        if ("".equals(username) || "".equals(password)){
+            return "redirect:/login.html";
+        }
         User user = userService.findUser(username, password);
         if (user != null) {
             session.setAttribute("user", user);
