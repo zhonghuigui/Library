@@ -11,5 +11,5 @@ import java.util.List;
  */
 public interface OrderService {
     public boolean addOrder(OrderVo order);
-    public List<Order> findAll();
+    public List<Order> findAll(Integer user);
 }

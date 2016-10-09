@@ -58,7 +58,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> findAll() {
+    public List<Order> findAll(Integer user) {
         return orderMapper.searchOrderByParams(null);
     }
 }

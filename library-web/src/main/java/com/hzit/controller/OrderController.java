@@ -25,8 +25,7 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @RequestMapping("addorder")
-    @ResponseBody
+    @RequestMapping("/addorder")
     public Object addOrder(HttpSession session) {
         try {  //从session获取用户对象
             User user = (User) session.getAttribute("user");
@@ -42,17 +41,20 @@ public class OrderController {
             o.setUserId(user.getUserId());
             o.setBookVoList(list);
             boolean bool = orderService.addOrder(o);
-            return bool;
+            return "redirect:/shopping-success.html";
         } catch (Exception ex) {
             ex.printStackTrace();
             return false;
         }
 
     }
-    @RequestMapping("findAllorder")
-    public String findAllorder( ModelMap modelMap){
-      List<Order> list=orderService.findAll();
+    @RequestMapping("/findallorder")
+    public String findAllorder( ModelMap modelMap,HttpSession session){
+        User user= (User) session.getAttribute("user");
+        List<Order> list=orderService.findAll(user.getUserId());
         modelMap.put("list",list);
-        return "";
+        modelMap.put("userid",user.getUserId());
+        return "orderlist";
     }
+
 }

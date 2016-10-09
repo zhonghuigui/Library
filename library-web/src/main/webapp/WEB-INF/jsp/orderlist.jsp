@@ -1,4 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -11,7 +13,7 @@
 	<div id="navbar">
 		<div class="userMenu">
 			<ul>
-				<li><a href="../../index.html">User首页</a></li>
+				<li><a href="../../index.html">首页</a></li>
 				<li class="current"><a href="../../orderlist.html">我的订单</a></li>
 				<li><a href="../../shopping.html">购物车</a></li>
 				<li><a href="#">注销</a></li>
@@ -24,6 +26,7 @@
 </div>
 <div id="content" class="wrap">
 	<div class="list orderList">
+		<form method="get" name="show" action="shopping-success.html">
 			<table>
 				<tr class="title">
 					<th class="orderId">订单编号</th>
@@ -33,23 +36,18 @@
 					<th class="createTime">下单时间</th>
 					<th class="status">订单状态</th>
 				</tr>
+           <c:forEach items="${list.content}" var="v">
 				<tr>
-					<td>10010</td>
-					<td class="thumb"><img src="../../images/book/book_01.gif" /></td>
-					<td>王五</td>
-					<td>￥18.00</td>
-					<td>2012-12-21 12:00:00</td>
-					<td>已完成</td>
+					<td>${v.orderId}</td>
+					<td class="thumb"></td>
+					<td>${v.userId}</td>
+					<td>${v.orderPrice}</td>
+					<td>${v.date}</td>
+					<td>${v.orderStatus}</td>
 				</tr>
-				<tr>
-					<td>10010</td>
-					<td class="thumb"><img src="../../images/book/book_02.gif" /></td>
-					<td>马六</td>
-					<td>￥18.00</td>
-					<td>2012-12-21 12:00:00</td>
-					<td>已完成</td>
-				</tr>
+			</c:forEach>
 			</table>
+			</form>
 			<div class="page-spliter">
 				<a href="#">&lt;</a>
 				<a href="#">首页</a>

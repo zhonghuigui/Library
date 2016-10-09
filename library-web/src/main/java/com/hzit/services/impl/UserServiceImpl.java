@@ -21,8 +21,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUser(String username, String password) {
         Map map=new HashMap();
-        map.put("username",username);
-        map.put("password",password);
+        map.put("userName",username);
+        map.put("userpassword",password);
        List<User> list=userMapper.searchUserByParams(map);
       if(list!=null && list.size()>0){
           return list.get(0);
