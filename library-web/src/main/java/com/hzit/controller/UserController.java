@@ -29,16 +29,14 @@ public class UserController extends BaseController {
     @RequestMapping("/tologin")
     public String login(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session) {
         User user = userService.findUser(username, password);
-
-
         if (user != null) {
-
             session.setAttribute("user", user);
             return "redirect:/bookpage";
-        } else {
+        } else
             return "redirect:/login.html";
         }
-    }
+
+
 
     /**
      * 注销
