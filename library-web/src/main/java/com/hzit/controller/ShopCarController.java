@@ -58,12 +58,6 @@ public class ShopCarController {
             //把对象放入到购物车
             car.put(v.getBookId(),v);
 
-            //循环计算商品的总价
-            int su=0;
-            Collection<BookVo> cc=car.values();
-            for(BookVo t:cc){
-                su+= t.getCount()*t.getBookPrice();
-            }
         }
         session.setAttribute("car", car);
         //System.out.println("gogo");
