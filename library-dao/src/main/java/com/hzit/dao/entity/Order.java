@@ -20,7 +20,7 @@ public class Order {
 	/**
 	 *  用户ID
 	 */
-	private Integer userId;
+	private String userId;
 	/**
 	 *  订单状态
 	 */
@@ -74,7 +74,7 @@ public class Order {
 	 * 用户ID
 	 * @param userId
 	 */
-	public void setUserId(Integer userId){
+	public void setUserId(String userId){
 		this.userId = userId;
 	}
 	
@@ -82,7 +82,7 @@ public class Order {
      * 用户ID
      * @return
      */	
-    public Integer getUserId(){
+    public String getUserId(){
     	return userId;
     }
 	/**

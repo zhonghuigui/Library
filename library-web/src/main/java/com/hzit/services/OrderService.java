@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface OrderService {
     public boolean addOrder(OrderVo order);
-    public List<Order> findAll(Integer userid);
-    public Page<Order> findByPage(Integer userid,int page,int row);
+    public List<OrderVo> findAll(String userId);
+    public Page<OrderVo> findByPage(String userId,int page,int row);
 
 }

@@ -69,19 +69,36 @@
         WHERE orderID = #{orderId}
     </update>
 
-    <select id="searchOrderByParams" parameterType="map" resultMap="orderMap">
-        SELECT
-        <include refid="orderBaseColumnSql"/>
-        FROM `order`
-        <include refid="orderBaseWhereSql"/>
+    <select id="searchOrderByParams" parameterType="map" resultMap="orderVoMap">
+
+        SELECT `order`.userID,`order`.orderID,`order`.orderPrice,`order`.date,`order`.orderStatus,book.BookPicture
+        FROM `order` JOIN orderdetails ON `order`.orderID=orderdetails.orderID
+        JOIN  book ON orderdetails.bookID=book.BookID
+        where  `order`.userID=#{map.userId} GROUP BY `order`.orderid
     </select>
 
     <resultMap type="com.hzit.dao.entity.Order" id="orderMap">
+    <id column="orderID" property="orderId"/>
+    <result column="orderPrice" property="orderPrice"/>
+    <result column="date" property="date"/>
+    <result column="userID" property="userId"/>
+    <result column="orderStatus" property="orderStatus"/>
+</resultMap>
+
+    <resultMap type="com.hzit.dao.vo.OrderVo" id="orderVoMap">
         <id column="orderID" property="orderId"/>
         <result column="orderPrice" property="orderPrice"/>
         <result column="date" property="date"/>
         <result column="userID" property="userId"/>
         <result column="orderStatus" property="orderStatus"/>
+       <collection property="bookVoList" ofType="com.hzit.dao.vo.BookVo">
+           <result column="BookId" property="bookId"></result>
+           <result column="BookName" property="bookName"></result>
+           <result column="BookPrice" property="bookPrice"></result>
+           <result column="BookCount" property="bookCount"></result>
+           <result column="BookPicture" property="bookPicture"></result>
+
+       </collection>
     </resultMap>
 
 </mapper>

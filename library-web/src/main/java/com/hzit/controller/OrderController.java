@@ -12,7 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -55,7 +55,7 @@ public class OrderController {
     @RequestMapping("/findallorder")
     public String findAllorder(ModelMap modelMap, HttpSession session) {
         User user = (User) session.getAttribute("user");
-        List<Order> list = orderService.findAll(user.getUserId());
+        List<OrderVo> list = orderService.findAll(user.getUserId());
         modelMap.put("list", list);
       modelMap.put("userid",user.getUserId());
         return "orderlist";
@@ -68,12 +68,13 @@ public class OrderController {
      * @param session
      * @return
      */
-    @RequestMapping("orderpage")
+    @RequestMapping("/orderpage")
     public String getAll( @RequestParam(name = "page", defaultValue = "0") Integer page, ModelMap modelMap,HttpSession session) {
         User user = (User) session.getAttribute("user");
-        Page<Order> list = orderService.findByPage(user.getUserId(), page, 4);
+        String userId=user.getUserId();
+        Page<OrderVo> list = orderService.findByPage(userId, page, 4);
         modelMap.put("list", list);
-        modelMap.put("currpage", page);
+        modelMap.put("currpage",page);
         return "orderlist";
     }
 }

@@ -10,7 +10,7 @@ public class OrderVo {
 	/**
 	 *  订单ID
 	 */
-	private Integer orderId;
+	private String orderId;
 	/**
 	 *  订单价格
 	 */
@@ -37,7 +37,7 @@ public class OrderVo {
 	/**
 	 *  用户ID
 	 */
-	private Integer userId;
+	private String userId;
 	/**
 	 *  订单状态
 	 */
@@ -46,7 +46,7 @@ public class OrderVo {
 	 * 订单ID
 	 * @param orderId
 	 */
-	public void setOrderId(Integer orderId){
+	public void setOrderId(String orderId){
 		this.orderId = orderId;
 	}
 	
@@ -54,7 +54,7 @@ public class OrderVo {
      * 订单ID
      * @return Integer
      */	
-    public Integer getOrderId(){
+    public String getOrderId(){
     	return orderId;
     }
 	/**
@@ -91,7 +91,7 @@ public class OrderVo {
 	 * 用户ID
 	 * @param userId
 	 */
-	public void setUserId(Integer userId){
+	public void setUserId(String userId){
 		this.userId = userId;
 	}
 	
@@ -99,7 +99,7 @@ public class OrderVo {
      * 用户ID
      * @return Integer
      */	
-    public Integer getUserId(){
+    public String getUserId(){
     	return userId;
     }
 	/**

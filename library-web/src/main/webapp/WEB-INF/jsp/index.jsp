@@ -13,7 +13,7 @@
 		<div class="userMenu">
 			<ul>
 				<li class="current"><a href="bookpage">首页</a></li>
-				<li><a href="findallorder">我的订单</a></li>
+				<li><a href="orderpage">我的订单</a></li>
 				<li><a href="car/putcar">购物车</a></li>
 				<li><a href="loginout">注销</a></li>
 			</ul>

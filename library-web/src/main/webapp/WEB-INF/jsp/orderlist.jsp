@@ -40,7 +40,12 @@
              <c:forEach items="${list.content}" var="v">
 				<tr>
 					<td>${v.orderId}</td>
-					<td class="thumb"></td>
+
+
+					<td class="thumb"><c:forEach items="${v.bookVoList}" var="g">
+						<img src="${g.bookPicture}"  width="100px" height="150px">
+					</c:forEach>
+					</td>
 					<td>${sessionScope.user.userName}</td>
 					<td>${v.orderPrice}</td>
 					<td>${v.date}</td>
